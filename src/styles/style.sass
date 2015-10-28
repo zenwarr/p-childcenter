@@ -1,0 +1,1002 @@
+@import base
+@import fonts
+@import sprites/sprite
+@import colorbox
+
+$color-orange: #ED7910
+
+
+body
+  min-width: 320px
+
+  font-family: $font-opensans
+  background: url(../img/bg-body.png)
+
+.form-control
+  &.error
+    outline: 1px solid red !important
+
+=action-btn
+  +themed-button
+
+  display: inline-block
+  padding: 0 50px
+
+  font-size: 14px
+  line-height: 41px
+  text-decoration: none
+
+  border-radius: 4px
+  background: #f37b10
+  color: white
+
+  transition: background 0.1s linear
+
+  &:hover, &:focus
+    background: lighten(#f37b10, 10%)
+    outline: none
+
+
+.section-content
+  padding: 0 54px
+  max-width: 1112px
+  margin: 0 auto
+
+
+/*
+  заглавный блок
+
+.section-header
+  position: relative
+  overflow: hidden
+  height: 100vh
+  max-height: 800px
+
+  text-align: center
+
+  color: white
+
+  .section-content
+    padding: 0
+    // height: 100%
+    overflow: hidden
+    max-width: 50000px
+
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+
+/**
+ * iPad with portrait orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)
+  .section-header
+    height: 1024px
+
+
+/**
+ * iPad with landscape orientation.
+ */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape)
+  .section-header
+    height: 768px
+
+
+/**
+ * iPhone 5
+ * You can also target devices with aspect ratio.
+ */
+@media screen and (device-aspect-ratio: 40/71)
+  .section-header
+    height: 500px
+
+
+.header-slider
+  position: absolute
+  left: 0
+  top: 0
+  height: 100%
+  max-width: 100%
+
+.header-slider-items
+  > li
+    position: relative
+    height: 100vh
+    width: 100vw
+    overflow: hidden
+
+.slider-photo
+  position: absolute
+  left: 50%
+  top: 0
+  transform: translateX(-50%)
+  min-width: 100%
+  min-height: 100%
+
+
+.header-top, .header-bottom
+  position: relative
+
+.header-top
+  padding: 50px 30px 0
+  min-height: 50%
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.header-nav
+  flex-grow: 1
+
+.site-titles
+  clear: both
+
+.site-title
+  font-size: 64px
+  font-weight: $font-weight-semibold
+
+.site-subtitle
+  font-size: 17px
+  font-weight: normal
+
+.header-bottom
+  margin-top: 40px
+
+.header-buttons
+  a
+    margin: 0 5px 10px
+
+    &:last-child
+      margin-bottom: 0
+
+.header-button-about, .header-button-signup
+  +action-btn
+  padding: 0
+  width: 153px
+
+.header-button-about
+  line-height: 37px
+  border: 2px solid
+  background: transparent
+
+  &:hover, &:focus
+    background: rgba(white, .3)
+
+.header-slider
+  .bx-prev, .bx-next
+    position: absolute
+    z-index: 10
+    top: 50%
+    margin-top: -25px
+    +size(45px, 50px)
+
+    +hide-text
+
+    background: rgba(black, .32)
+    border-radius: 2px
+
+    transition: background 0.2s linear
+
+    &:hover
+      background: rgba(black, .5)
+
+    &:after
+      content: ""
+      display: block
+      margin: 0 15px
+
+  .bx-prev
+    left: -2px
+    &:after
+      +sprite($icon-bgslider-prev)
+
+  .bx-next
+    right: -2px
+    &:after
+      +sprite($icon-bgslider-next)
+
+  .bx-pager
+    position: absolute
+    z-index: 10
+    left: 0
+    right: 0
+    bottom: 0
+
+    text-align: center
+
+  .bx-pager-item
+    display: inline-block
+
+  .bx-pager-link
+    display: inline-block
+    +size(6px)
+    margin: 0 3px
+
+    +hide-text
+
+    color: white
+    border-radius: 50%
+    overflow: hidden
+
+    border: 1px solid
+
+    cursor: pointer
+
+    &.active
+      background: white
+
+
+.site-logo
+  display: inline-block
+  +size(109px, 55px)
+  float: left
+
+  background: url(../img/site-logo.png)
+
+.header-nav
+  float: right
+  padding-top: 15px
+  font-size: 16px
+
+  > li
+    display: inline-block
+    margin: 0 15px
+
+    > a
+      text-decoration: none
+      transition: opacity 0.1s linear
+
+      &:hover, &:focus
+        opacity: .8
+
+      &:after
+        content: ""
+        display: block
+        +size(8px, 2px)
+        margin: 6px auto 0
+        background: transparent
+
+    &.active
+      > a:after
+        background: white
+
+
+.section-about
+  padding-top: 45px
+  text-align: center
+
+  font-size: 14px
+
+.about-photo
+  > img
+    border-radius: 50%
+
+.about-photo-title
+  line-height: 36px
+  font-weight: $font-weight-semibold
+
+.about-photo-subtitle
+  font-weight: $font-weight-thin
+
+.about-block
+  margin: 45px 0
+
+  p
+    margin: 14px 0
+
+.about-block-title
+  font-size: 24px
+  color: #231f20
+
+.about-blocks
+  +clr
+
+.about-block
+  float: left
+  width: 50%
+
+  text-align: left
+
+  &:nth-child(2n)
+    padding-left: 70px
+
+
+
+.section-stat
+  padding: 33px 0
+
+  background: #f3780c
+  color: white
+
+.stat-list
+  text-align: justify
+  +justify-fix
+  font-weight: $font-weight-thin
+
+  > li
+    position: relative
+    display: inline-block
+
+.stat-icon
+  float: left
+  margin-right: 20px
+  margin-top: 10px
+
+.stat-content
+  float: left
+
+.icon-comments
+  +sprite($icon-comments)
+
+.icon-clients
+  +sprite($icon-clients)
+
+.icon-clients-happy
+  +sprite($icon-clients-happy)
+
+.icon-bids
+  +sprite($icon-bids)
+
+.stat-number
+  font-size: 39px
+  line-height: 1
+  text-align: center
+
+.stat-text
+  font-size: 12px
+
+
+.section-mission
+  padding: 75px 0
+
+.mission-image
+  float: left
+
+  > img
+    border-radius: 50%
+
+.mission-content
+  padding-left: 215px
+  font-size: 14px
+  color: #231f20
+
+  p
+    line-height: 1.3
+    margin: 18px 0
+
+.mission-title
+  font-size: 24px
+  margin-bottom: 10px
+
+
+
+.section-events
+  padding: 45px 0
+  background: url(../img/bg-events.jpg) center top no-repeat
+  background-size: cover
+  color: white
+
+.events-title
+  font-size: 32px
+  margin-bottom: 16px
+  text-transform: uppercase
+  padding-left: 10px
+
+.events-list
+  +clr
+
+  > li
+    float: left
+    width: 33.33333333333%
+    padding: 0 10px
+
+.event-image
+  position: relative
+  margin-bottom: 36px
+  max-width: 100%
+  height: auto
+
+  text-align: center
+  font-size: 13px
+
+  > img
+    display: block
+    margin: 0 auto
+    max-width: 100%
+
+.event-photo-title, .event-photo-date
+  position: absolute
+  left: 0
+  right: 0
+
+.event-photo-title
+  bottom: 50%
+  font-size: 24px
+  text-transform: uppercase
+
+.event-photo-date
+  top: 50%
+
+.event-text
+  padding: 0 10px
+
+  font-size: 15px
+  line-height: 25px
+
+.events-slider
+  position: relative
+
+  .bx-prev, .bx-next
+    position: absolute
+    top: 95px
+    transition: border 0.2s linear
+
+    +hide-text
+
+  .bx-prev
+    left: -18px
+    +triangle(21px, 15px, white, left)
+
+    &:hover
+      border-right-color: $color-orange
+
+  .bx-next
+    right: -18px
+    +triangle(21px, 15px, white, right)
+
+    &:hover
+      border-left-color: $color-orange
+
+
+
+.section-clients
+  .section-content
+    max-width: 50000px
+    padding: 0
+
+.clients-list
+  +clr
+
+  > li
+    float: left
+    width: 33.3333333333333%
+
+    padding: 50px 30px 60px
+
+    &:nth-child(3n-2)
+      background: #ed7910
+
+    &:nth-child(3n-1)
+      background: #fa3419
+
+    &:nth-child(3n)
+      background: #aa0b22
+
+.client-photo
+  margin-top: 35px
+  float: left
+  border-radius: 50%
+
+.client-content
+  padding-left: 135px
+
+  font-size: 12px
+  line-height: 23px
+
+  color: white
+
+.client-name
+  font-size: 18px
+  margin-bottom: 15px
+
+.client-text
+  max-height: 135px
+  overflow: hidden
+
+.clients-slider
+  position: relative
+
+  .bx-prev, .bx-next
+    position: absolute
+    top: 50%
+    margin-top: -4px
+
+    +hide-text
+
+  .bx-prev
+    left: 10px
+    +triangle(8px, 8px, white, left)
+
+    &:after
+      content: ''
+      position: absolute
+      left: -10px
+      top: -15px
+      right: -18px
+      bottom: -15px
+
+  .bx-next
+    right: 10px
+    +triangle(8px, 8px, white, right)
+
+    &:after
+      content: ''
+      position: absolute
+      left: -18px
+      top: -15px
+      right: -10px
+      bottom: -15px
+
+.section-shedule
+  padding: 60px 0 65px
+  font-size: 16px
+  text-align: center
+
+  .section-content
+    padding: 0
+
+.shedule-title
+  margin-bottom: 56px
+
+  font-size: 32px
+  font-weight: bold
+  text-transform: uppercase
+  text-align: center
+
+.shedule-select-box
+  margin-bottom: 55px
+  text-align: justify
+  +justify-fix(16px, 36px)
+
+  > div
+    display: inline-block
+
+.shedule-select-controls
+  display: inline-block
+  text-align: justify
+  +justify-fix(16px, 36px)
+  width: 250px
+
+.shedule-select-day
+  display: inline-block
+
+.shedule-select-item
+  position: relative
+  display: inline-block
+
+.shedule-days-list
+  display: none
+
+.shedule-select
+  display: inline-block
+  vertical-align: -19px
+  text-decoration: none
+  +hide-text
+
+.shedule-select-day-prev
+  position: relative
+  +triangle(8px, 8px, black, left)
+  margin-right: 10px
+  transition: border 0.1s linear
+
+  &:hover
+    border-right-color: $color-orange
+
+  &:after
+    content: ''
+    position: absolute
+    left: -10px
+    top: -15px
+    right: -18px
+    bottom: -15px
+
+.shedule-select-day-next
+  position: relative
+  +triangle(8px, 8px, black, right)
+  margin-left: 10px
+  transition: border 0.1s linear
+
+  &:hover
+    border-left-color: $color-orange
+
+  &:after
+    content: ''
+    position: absolute
+    left: -18px
+    top: -15px
+    right: -10px
+    bottom: -15px
+
+.shedule-select-item-prev
+  +triangle(8px, 8px, black, up)
+  position: absolute
+  left: 50%
+  margin-left: -4px
+  top: -15px
+  transition: border 0.1s linear
+
+  &:hover
+    border-bottom-color: $color-orange
+
+  &:after
+    content: ''
+    position: absolute
+    left: -15px
+    top: -10px
+    right: -15px
+    bottom: -18px
+
+.shedule-select-item-next
+  +triangle(8px, 8px, black, down)
+  position: absolute
+  left: 50%
+  margin-left: -4px
+  bottom: -15px
+  transition: border 0.1s linear
+
+  &:hover
+    border-top-color: $color-orange
+
+  &:after
+    content: ''
+    position: absolute
+    left: -15px
+    top: -18px
+    right: -15px
+    bottom: -10px
+
+.shedule-action
+  +action-btn
+
+
+
+.section-news
+  padding: 40px 0 55px 0
+
+  background: #ed7910
+  color: white
+
+.news-section-title
+  margin-bottom: 18px
+  padding-left: 20px
+
+  font-size: 18px
+  font-weight: bold
+
+.news-list
+  > li
+    +clr
+
+.news-video-embed
+  position: relative
+  width: 100%
+  max-width: 728px
+  float: left
+  margin-right: 22px
+  margin-bottom: 20px
+
+  &:before
+    content: ''
+    display: block
+    width: 100%
+    height: 0
+    padding-bottom: 58.516%
+
+  iframe
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+.news-title
+  margin-bottom: 16px
+  padding-left: 20px
+
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
+
+.news-desc
+  margin-bottom: 15px
+
+  font-size: 11px
+
+.news-text
+  font-size: 12px
+  line-height: 22px
+
+  p
+    margin: 15px 0
+
+
+
+
+.section-now
+  padding: 60px 0 70px
+
+  color: #231f20
+
+.now-title
+  margin-bottom: 27px
+
+  font-size: 32px
+  font-weight: $font-weight-semibold
+  text-transform: uppercase
+  text-align: center
+
+.now-text
+  margin-bottom: 20px
+
+  font-size: 15px
+  line-height: 19px
+  text-align: center
+
+.now-form
+  max-width: 733px
+  margin: 0 auto
+  text-align: center
+
+  .form-control
+    +themed-input
+    margin-bottom: 25px
+    padding: 13px 20px
+
+    border: 1px solid #dfdfdf
+    border-radius: 2px
+
+    &:focus
+      border-color: darken(#dfdfdf, 20%)
+
+  .form-name, .form-email
+    width: 48%
+
+  .form-name
+    float: left
+
+  .form-email
+    float: right
+
+  textarea.form-control
+    width: 100%
+    min-height: 200px
+    resize: vertical
+
+.now-action
+  +action-btn
+  margin-top: 10px
+
+
+
+
+
+.section-map
+  height: 360px
+
+  background: red
+
+
+
+
+.section-footer
+  position: relative
+  padding: 30px 0 20px
+
+  font-size: 12px
+
+  background: #262626
+  color: #a8a8a8
+
+  .section-content
+    +clr
+
+.footer-title
+  font-size: 14px
+  line-height: 35px
+
+  color: white
+
+.footer-left
+  +clr
+  float: left
+
+.footer-right
+  float: right
+
+.section-copyright
+  position: relative
+  clear: both
+  padding-top: 12px
+  padding-bottom: 23px
+
+  font-size: 12px
+  line-height: 20px
+
+  background: #262626
+  color: #737373
+  border-top: 1px solid
+
+.icon-footer-logo
+  display: inline-block
+  vertical-align: -6px
+  margin-right: 8px
+  +sprite($icon-footer-logo)
+
+.footer-social-list
+  margin: 20px 0
+  > li
+    margin-right: 6px
+    display: inline-block
+
+    > a
+      display: inline-block
+      transition: opacity 0.1s linear
+
+      &:hover, &:focus
+        opacity: 0.8
+
+.footer-address, .footer-contacts
+  float: left
+  width: 50%
+
+  a
+    text-decoration: none
+    +hover-underline
+
+.icon-vk
+  +sprite($icon-vk)
+
+.icon-facebook
+  +sprite($icon-facebook)
+
+.icon-twitter
+  +sprite($icon-twitter)
+
+.icon-youtube
+  +sprite($icon-youtube)
+
+.footer-nav
+  font-size: 11px
+  line-height: 31px
+
+  > li
+    border-bottom: 1px solid
+
+    > a
+      text-decoration: none
+
+      &:hover, &:focus
+        opacity: 0.8
+
+
+.to-top
+  position: absolute
+  right: 30px
+  bottom: 30px
+  +triangle(8px, 8px, white, up)
+  transition: opacity 0.1s linear
+
+  &:hover, &:focus
+    opacity: .8
+
+  &:after
+    content: ''
+    position: absolute
+    left: -15px
+    top: -10px
+    right: -15px
+    bottom: -18px
+
+
+.popup-form
+  display: none
+  padding: 20px
+
+  text-align: center
+
+  .form-control
+    +themed-input
+
+    display: block
+    width: 100%
+
+    margin-bottom: 25px
+    padding: 10px 20px
+
+    border: 1px solid #dfdfdf
+    border-radius: 2px
+
+    &:focus
+      border-color: darken(#dfdfdf, 20%)
+
+  textarea.form-control
+    min-height: 200px
+    resize: vertical
+
+  .popup-form-action
+    +action-btn
+
+#colorbox .popup-form
+  display: block
+
+
+
+@media (max-width: 920px)
+  .header-top
+    text-align: center
+    padding-top: 10px
+
+  .site-logo, .header-nav
+    float: none
+
+  .header-nav
+    padding-top: 0
+    margin-top: 20px
+
+  .shedule-select-controls
+    width: auto
+
+  .shedule-select-box, .shedule-select-controls
+    > div
+      margin-bottom: 10px
+      width: 100%
+      text-align: center
+
+  .shedule-select-item
+    margin: 15px 0
+
+  .about-block
+    float: none
+    width: 100%
+
+    &:nth-child(2n)
+      padding: 0
+
+
+@media (max-width: 640px)
+  // .section-content
+  //   padding: 0
+
+  .stat-list
+    > li
+      width: 100%
+      text-align: center
+      margin-bottom: 20px
+
+  .stat-icon, .stat-content
+    float: none
+    display: inline-block
+
+  .mission-image
+    float: none
+    text-align: center
+    margin-bottom: 20px
+
+    > img
+      display: inline-block
+      max-width: 100%
+
+  .mission-content
+    padding-left: 0
+
+  .now-form
+    .form-name, .form-email
+      float: none
+      display: block
+      width: 100%
+
+  .footer-left, .footer-right, .footer-address, .footer-contacts
+    float: none
+
+  .footer-copyright
+    padding-top: 30px
+
+
+.popup-thanks
+  display: none
+  padding: 20px
+
+#colorbox .popup-thanks
+  display: block
